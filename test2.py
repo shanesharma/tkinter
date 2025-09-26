@@ -22,6 +22,9 @@ def linear_search(val, index = 0):
         root.after(500, linear_search, val, index+1)
          
          
+def create_lin_window():
+     for 
+
 
 main_frame = tk.Frame(root)
 main_frame.grid(row=0, column=0, sticky= (tk.N, tk.W, tk.E, tk.S))
