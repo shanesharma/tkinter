@@ -23,32 +23,42 @@ def linear_search(val, index = 0):
          
          
 def create_lin_window():
-     for 
+     linear_search_window = tk.Toplevel(root)
+     linear_search_frame  = tk.Frame(linear_search_window)
+     linear_search_frame.grid( row = 0, column= 0, sticky=(tk.N, tk.S, tk.E, tk.W))
+     global canv
+     global arr
+     global rect_arr
+     canv =  tk.Canvas(linear_search_frame, width=800, height = 600, bg = "white")
+     canv.grid(row=0, column=0)
+     
+     arr = [1,4,5,9,3]
+
+     rect_arr = list()
+     for i,v in enumerate(arr):
+          
+
+        rect_arr.append(canv.create_rectangle((i)*100 + 20, 200, (i)*100 + 100,300, fill= "lightblue", outline = "black"))
+        canv.create_text(((i)*100 + 60), 250 , text = v)
+        canv.grid(row=0, column=0)
+    
+     linear_search(11)
+        
 
 
 main_frame = tk.Frame(root)
 main_frame.grid(row=0, column=0, sticky= (tk.N, tk.W, tk.E, tk.S))
 
-canv =  tk.Canvas(main_frame, width=800, height = 600, bg = "white")
-canv.grid(row=0, column=0)
-
-linear_search_window = tk.Toplevel(root)
-arr = [1,4,5,9,3]
-
-rect_arr = list()
-
-for i,v in enumerate(arr):
-
-    rect_arr.append(canv.create_rectangle((i)*100 + 20, 200, (i)*100 + 100,300, fill= "lightblue", outline = "black"))
-    canv.create_text(((i)*100 + 60), 250 , text = v)
-canv.pack()
+linear_search_button = tk.Button(main_frame, text = "Linear Search", command= create_lin_window)
+linear_search_button.grid(row=0, column=0)
 
 
 
 
 
-print(rect_arr)
-linear_search(11)
+
+
+
 root.mainloop()
 
 
